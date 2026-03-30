@@ -7,6 +7,7 @@ import { BaseEntry } from "@contentstack/delivery-sdk";
 import Image from "next/image";
 import Link from "next/link";
 import Features from "./Features";
+import { useLoading } from "@/context/LoadingContext";
 
 interface HeroCarouselItem {
   hero_image: Asset;
@@ -47,15 +48,17 @@ export interface HeroEntry extends BaseEntry {
 const Hero: React.FC = () => {
   const [heroContent, setHeroContent] = useState<HeroEntry | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { setHeroLoaded } = useLoading();
 
   // Fetch CMS Data
   useEffect(() => {
     const fetchHeroContent = async () => {
       const content = await getHomePage<HeroEntry>("hero_section", { includeReferences: ["hero_feature"] });
       setHeroContent(content);
+      setHeroLoaded(true);
     };
     fetchHeroContent();
-  }, []);
+  }, [setHeroLoaded]);
 
 
   if (!heroContent) return null;

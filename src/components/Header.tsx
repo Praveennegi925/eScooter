@@ -5,6 +5,7 @@ import { stackLink, Metadata, Asset } from "@/app/contentstack-sdk/types";
 import { BaseEntry } from "@contentstack/delivery-sdk";
 import Image from "next/image";
 import Link from "next/link";
+import { useLoading } from "@/context/LoadingContext";
 
 
 export interface SubItem {
@@ -40,14 +41,16 @@ const Header: React.FC = () => {
   );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedSubMenu, setExpandedSubMenu] = useState<string | null>(null);
+  const { setHeaderLoaded } = useLoading();
 
   useEffect(() => {
     const fetchHeaderContent = async () => {
       const content = await getHomePage<HeaderEntry>("header");
       setHeaderContent(content);
+      setHeaderLoaded(true);
     };
     fetchHeaderContent();
-  }, []);
+  }, [setHeaderLoaded]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
