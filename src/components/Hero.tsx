@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pl-4 lg:pl-8">
 
           {/* LEFT CONTENT */}
-          <div className="flex flex-col justify-around">
+          <div className="flex flex-col md:justify-center md:items-start md:justify-around">
 
             {/* Title */}
             <div className="mb-8">
@@ -131,14 +131,14 @@ const Hero: React.FC = () => {
           </div>
 
           {/* RIGHT CONTENT */}
-          <div className="relative w-full h-[600px] flex items-center justify-center">
+          <div className="relative w-full md:h-[600px] flex items-center justify-center">
 
             {/* Background Image*/}
     
               <Image
                 src={currentSlide.hero_background_image.url} alt="bg"
                 fill
-                className="object-none absolute !left-[22%] opacity-50"
+                className="md:object-none absolute !left-[22%] opacity-50"
               />
        
 
@@ -155,10 +155,10 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Carousel Controls */}
-            <div className="absolute bottom-[-8%] right-10  flex items-center gap-6">
+            <div className="absolute bottom-[-25%] md:bottom-[-8%] right-10 flex items-center gap-6">
 
               {/* Index */}
-              <div className="text-8xl font-bold text-outlined-white">
+              <div className="text-6xl md:text-8xl font-bold text-outlined-white">
                 {String(activeIndex + 1).padStart(2, "0")}
               </div>
 

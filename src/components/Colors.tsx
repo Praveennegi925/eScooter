@@ -31,7 +31,7 @@ const Colors: React.FC = () => {
   if (!data) return null;
 
   return (
-    <section className="w-full bg-white py-15 mb-30">
+    <section className="w-full bg-white py-15 md:mb-30">
       <div className="max-w-[1440px] mx-auto text-center mb-12">
         <h2 className="text-5xl lg:text-6xl font-bold text-[#42454a] mb-4">
           {data.title}
@@ -43,7 +43,7 @@ const Colors: React.FC = () => {
 
       <div className="relative">
         {mainImage?.url && (
-          <div key={mainImage?.uid} className="relative w-full h-[873px]">
+          <div key={mainImage?.uid} className="relative w-full h-[200px] md:h-[873px]">
             <Image
               src={mainImage.url}
               alt={mainImage?.title || ""}
@@ -54,9 +54,9 @@ const Colors: React.FC = () => {
         )}
 
         {/* Colors Grid */}
-        <div className="flex justify-between gap-6 absolute top-[45%] md:top-[85%] left-0 w-full h-full px-4">
+        <div className="flex justify-between gap-6 absolute top-[50%] md:top-[45%] md:top-[85%] left-0 w-full h-full px-4">
           {data.image?.slice(1)?.map((img) => (
-            <div key={img.uid} className="relative w-full h-[300px]">
+            <div key={img.uid} className="relative w-full h-[200px] md:h-[300px]">
               <Image
                 src={img.url}
                 alt={img.title}

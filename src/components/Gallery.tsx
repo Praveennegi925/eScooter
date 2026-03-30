@@ -61,13 +61,13 @@ const Gallery: React.FC = () => {
         </p>
       </div>
 
-      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
 
         {/* Left column */}
         <div className="flex flex-col justify-end items-end">
           {leftCard && (
-            <div className="relative w-full h-[450px]">
-              <p className="absolute top-2 left-[22%] z-10 text-xl font-bold text-[#42454a]">
+            <div className="relative w-full h-[225px] md:h-[450px]">
+              <p className="absolute top-1 md:top-2 left-[5%] md:left-[22%] z-10 text-xl font-bold text-[#42454a]">
                 {leftCard.feature_title}
               </p>
               {leftCard.feature_image?.url && (
@@ -85,7 +85,7 @@ const Gallery: React.FC = () => {
             {data.cta?.map((btn, i) => (
               <button
                 key={i}
-                className="w-95 border-2 border-[#42454a] rounded py-4 text-[#42454a] font-semibold hover:bg-[#42454a] hover:text-white transition-colors"
+                className="w-75 md:w-90 ml-8 border-2 border-[#42454a] rounded py-4 text-[#42454a] font-semibold hover:bg-[#42454a] hover:text-white transition-colors"
               >
                 {btn.title}
               </button>
@@ -96,8 +96,8 @@ const Gallery: React.FC = () => {
         {/* Right column */}
         <div className="space-y-8">
           {rightTwo.map((card) => (
-            <div key={card._metadata.uid} className="relative w-full h-[450px]">
-              <p className="absolute top-3 left-[22%] z-10 text-xl font-bold text-[#42454a]">
+            <div key={card._metadata.uid} className="relative w-full h-[225px] md:h-[450px]">
+              <p className="absolute top-2 md:top-3 left-[4%] md:left-[22%] z-10 text-xl font-bold text-[#42454a]">
                 {card.feature_title}
               </p>
               {card.feature_image?.url && (
